@@ -1,0 +1,12 @@
+{
+    "editor.fontSize":16,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Atom One Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "files.associations": {
+        "iostream": "cpp",
+        "ostream": "cpp",
+        "initializer_list": "cpp",
+        "string": "cpp"
+    },
+}

@@ -1,0 +1,81 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile file c++",
+            "type": "shell",
+
+            // ini adalah untuk mac dan linux
+            // "command": "Clang++",
+            // "args": [
+            //     "-std=c++17",
+            //     "-stdlib=libc++",
+            //     "${file}",
+            //     "-c",
+            //     "-o",
+            //     "./bin/objects/${fileBasenameNoExtension}.o",
+            // ]
+
+            // ini adalah untuk windows
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "${file}",
+                "-c",
+                "-o",
+                "./bin/objects/${fileBasenameNoExtension}.o",
+            ]
+        },
+        {
+            "label": "build",
+            "type": "shell",
+
+            // ini adalah untuk mac dan linux
+            // "command": "Clang++",
+            // "args": [
+            //     "-std=c++17",
+            //     "-stdlib=libc++",
+            //     "./bin/objects/**.o",
+            //     "-o",
+            //     "./bin/${fileBasenameNoExtension}.out",
+            // ]
+
+            // ini adalah untuk windows
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "./bin/objects/**.o",
+                "-o",
+                "./bin/${fileBasenameNoExtension}.exe",
+            ]
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "./bin/${fileBasenameNoExtension}.exe",
+        },
+        {
+            "label": "All Compile C++",
+            "type": "shell",
+            "command": "g++",
+            "args": [
+                "-std=c++17",
+                "./src/*.cpp",
+                "-o",
+                "./bin/Main.exe",
+            ]
+        },
+        {
+            "label":"run + all compile",
+            "type":"shell",
+            "command":"./bin/Main",
+            "dependsOn":["All Compile C++"],
+            "group":{
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
